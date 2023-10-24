@@ -1,0 +1,69 @@
+PARTIE A:
+#include <iostream>
+using namespace std;
+int main() {
+    int tab[10];
+
+    // Lecture des 10 nombres dans un tableau
+    for (int i = 0; i < 10; i++) {
+        cout << "Entrez un nombre : ";
+        cin >> tab[i];
+    }
+
+    int plusPetit = tab[0];
+    int plusGrand = tab[0];
+
+    // Recherche du plus petit et du plus grand
+    for (int i = 1; i < 10; i++) {
+        if (tableau[i] < plusPetit) {
+            plusPetit = tableau[i];
+        }
+        if (tableau[i] > plusGrand) {
+            plusGrand = tableau[i];
+        }
+    }
+
+    cout << "Le plus petit nombre est : " << plusPetit << endl;
+  cout << "Le plus grand nombre est : " << plusGrand <<endl;
+
+    return 0;
+}
+
+
+
+
+
+
+ PARTIE B:
+#include <iostream>
+using namespace std;
+
+int main() {
+    int tableau[10];
+
+    // Lecture des 10 nombres dans un tableau
+    for (int i = 0; i < 10; i++) {
+       cout << "Entrez un nombre : ";
+        cin >> tableau[i];
+    }
+
+    int *pointeur = tableau;
+    int plusPetit = *pointeur;
+    int plusGrand = *pointeur;
+
+    // Recherche du plus petit et du plus grand
+    for (int i = 1; i < 10; i++) {
+        pointeur++;
+        if (*pointeur < plusPetit) {
+            plusPetit = *pointeur;
+        }
+        if (*pointeur > plusGrand) {
+            plusGrand = *pointeur;
+        }
+    }
+
+    cout << "Le plus petit nombre est : " << plusPetit << endl;
+    cout << "Le plus grand nombre est : " << plusGrand << endl;
+
+    return 0;
+}
