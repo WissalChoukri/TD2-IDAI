@@ -1,0 +1,27 @@
+// Point.cpp
+#include "Point.h"
+#include <iostream>
+
+Point::Point(float x, float y) : x(x), y(y) {}
+
+void Point::deplace(float dx, float dy) {
+    x += dx;
+    y += dy;
+}
+
+void Point::affiche() const {
+    std::cout << "Coordonnées : (" << x << ", " << y << ")" << std::endl;
+}
+cpp
+Copy code
+
+// main.cpp
+#include "Point.h"
+
+int main() {
+    Point point(3.0, 4.0);
+    point.affiche();
+    point.deplace(2.0, 2.0);
+    point.affiche();
+    return 0;
+}
