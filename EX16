@@ -1,0 +1,53 @@
+#include <iostream>
+
+using namespace std;
+struct Element {
+    int valeur;
+    Element* suivant;
+};
+class Liste {
+private:
+    Element* premier;
+
+public:
+    Liste() {
+        premier = nullptr;
+    }
+    void ajouterElement(int valeur) {
+        Element* nouvelElement = new Element;
+        nouvelElement->valeur = valeur;
+        nouvelElement->suivant = premier;
+        premier = nouvelElement;
+    }
+    void supprimerElement() {
+        if (premier != nullptr) {
+            Element* elementASupprimer = premier;
+            premier = premier->suivant;
+            delete elementASupprimer;
+        }
+    }
+    void afficherListe() {
+        Element* elementCourant = premier;
+        while (elementCourant != nullptr) {
+            cout << elementCourant->valeur << " ";
+            elementCourant = elementCourant->suivant;
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    Liste maListe;
+
+    maListe.ajouterElement(87);
+    maListe.ajouterElement(9);
+    maListe.ajouterElement(1234);
+
+    maListe.afficherListe();
+
+    maListe.supprimerElement();
+
+    maListe.afficherListe();
+
+    return 0;
+}
