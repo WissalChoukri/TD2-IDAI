@@ -1,0 +1,64 @@
+ #include <iostream>
+ #include <cmath>
+ using namespace std;
+
+ class vecteur3d {
+ private:
+     float x, y, z;
+
+ public:
+     vecteur3d(float px=0,float py=0, float pz=0) : x(px), y(py), z(pz) {}
+
+     void afficher() {
+         cout << "(" << x << ", " << y << ", " << z << ")" <<endl;
+     }
+
+     vecteur3d somme(vecteur3d v) {
+         vecteur3d resultat(x + v.x, y + v.y, z + v.z);
+         return resultat;
+     }
+
+     float produitScalaire(vecteur3d v) {
+         return x * v.x + y * v.y + z * v.z;
+     }
+
+     bool coincide(vecteur3d v) {
+         return x == v.x && y == v.y && z == v.z;
+     }
+
+     
+     float norme() {
+         return sqrt(x*x + y*y + z*z);
+     }
+
+     vecteur3d normax(vecteur3d v) {
+         if (norme() > v.norme()) {
+             return *this;
+         } else {
+             return v;
+         }
+     }
+ };
+
+ int main() {
+     vecteur3d v1(1, 2, 3);
+     vecteur3d v2(4, 5, 6);
+
+     cout << "Vecteur v1: ";
+     v1.afficher();
+     cout << "Vecteur v2: ";
+     v2.afficher();
+
+     vecteur3d sum = v1.somme(v2);
+     cout << "Somme des vecteurs: ";
+     sum.afficher();
+
+     cout << "Produit scalaire: " << v1.produitScalaire(v2) << endl;
+     cout << "v1 coincide avec v2? " << (v1.coincide(v2) ? "Oui" : "Non") << endl;
+
+     vecteur3d maxNorm = v1.normax(v2);
+     cout << "Vecteur avec la plus grande norme: ";
+     maxNorm.afficher();
+
+     return 0;
+ }
