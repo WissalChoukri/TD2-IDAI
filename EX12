@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+class Test {
+public:
+    static int appelCounter; 
+
+    void call() {
+        appelCounter++;
+    }
+};
+
+int Test::appelCounter = 0; 
+
+int main() {
+    Test objet1, objet2, objet3;
+
+    objet1.call(); 
+    objet2.call(); 
+    objet3.call();
+
+   cout << "La fonction call a été appelée " << Test::appelCounter << " fois depuis le programme principal." << endl;
+
+    return 0;
+}
