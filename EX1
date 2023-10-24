@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int compteur = 0;
+void fonction_compteur() {
+    compteur++;
+}
+
+int main() {
+    fonction_compteur();
+    fonction_compteur();
+    fonction_compteur();
+cout << "Appel numéro " << compteur << endl;
+    return 0;
+}
