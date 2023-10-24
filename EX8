@@ -1,0 +1,85 @@
+#include <iostream>
+using namespace std;
+class NombreComplexe {
+private:
+    double reel;
+    double imaginaire;
+
+public:
+   
+    NombreComplexe(double r, double i) : reel(r), imaginaire(i) {}
+
+    NombreComplexe addition(const NombreComplexe &autre) const {
+        return NombreComplexe(reel + autre.reel, imaginaire + autre.imaginaire);
+    }
+
+    NombreComplexe soustraction(const NombreComplexe &autre) const {
+        return NombreComplexe(reel - autre.reel, imaginaire - autre.imaginaire);
+    }
+    NombreComplexe multiplication(const NombreComplexe &autre) const {
+        double r = reel * autre.reel - imaginaire * autre.imaginaire;
+        double i = reel * autre.imaginaire + imaginaire * autre.reel;
+        return NombreComplexe(r, i);
+    }
+    NombreComplexe division(const NombreComplexe &autre) const {
+        double denominateur = autre.reel * autre.reel + autre.imaginaire * autre.imaginaire;
+        double r = (reel * autre.reel + imaginaire * autre.imaginaire) / denominateur;
+        double i = (imaginaire * autre.reel - reel * autre.imaginaire) / denominateur;
+        return NombreComplexe(r, i);
+    }
+    void afficher() const {
+        std::cout << reel << " + " << imaginaire << "i" << std::endl;
+    }
+};
+
+int main() {
+    double reel1, imaginaire1, reel2, imaginaire2;
+    char choix;
+
+    cout << "Entrez la partie réelle du premier nombre complexe : ";
+    cin >> reel1;
+    cout << "Entrez la partie imaginaire du premier nombre complexe : ";
+    cin >> imaginaire1;
+
+    cout << "Entrez la partie réelle du deuxième nombre complexe : ";
+    cin >> reel2;
+   cout << "Entrez la partie imaginaire du deuxième nombre complexe : ";
+   cin >> imaginaire2;
+
+    NombreComplexe nombre1(reel1, imaginaire1);
+    NombreComplexe nombre2(reel2, imaginaire2);
+
+   cout << "Menu des opérations :" << endl;
+    cout << "A - Addition" << endl;
+    cout << "S - Soustraction" << endl;
+    cout << "M - Multiplication" << endl;
+    cout << "D - Division" << endl;
+    cout << "E - Égalité" <<endl;
+    cout << "Choisissez une opération (A/S/M/D/E) : ";
+    cin >> choix;
+
+    switch (choix) {
+        case 'A':
+            (nombre1.addition(nombre2)).afficher();
+            break;
+        case 'S':
+            (nombre1.soustraction(nombre2)).afficher();
+            break;
+        case 'M':
+            (nombre1.multiplication(nombre2)).afficher();
+            break;
+        case 'D':
+            (nombre1.division(nombre2)).afficher();
+            break;
+        case 'E':
+            if (reel1 == reel2 && imaginaire1 == imaginaire2)
+                cout << "Les nombres complexes sont égaux." << endl;
+            else
+                cout << "Les nombres complexes ne sont pas égaux." << endl;
+            break;
+        default:
+           cout << "Opération invalide." << endl;
+    }
+
+    return 0;
+}
