@@ -1,0 +1,30 @@
+#include <iostream>
+usin namespace std;
+int main() {
+    int tableau[10];
+    int temp;
+    int nombreEchanges;
+    cout << "Veuillez entrer 10 entiers :\n";
+    for (int i = 0; i < 10; i++) {
+        cin >> tableau[i];
+    }
+    do {
+        nombreEchanges = 0;
+        for (int i = 0; i < 9; i++) {
+            if (tableau[i] > tableau[i + 1]) {
+                // Échange les éléments si nécessaire
+                temp = tableau[i];
+                tableau[i] = tableau[i + 1];
+                tableau[i + 1] = temp;
+                nombreEchanges++;
+            }
+        }
+    } while (nombreEchanges > 0);
+    cout << "Le tableau trié par ordre croissant est :\n";
+    for (int i = 0; i < 10; i++) {
+        cout << tableau[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
