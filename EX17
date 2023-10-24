@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    string dateEtHeure;
+
+    cout << "Entrez une date et une heure sous la forme JJMMAAAAHHNN: ";
+    cin >> dateEtHeure;
+    if (dateEtHeure.length() != 12) {
+    cout << "Erreur: format incorrect." << endl;
+    }
+    char jour[3] = { dateEtHeure[0], dateEtHeure[1], '\0' };
+    char mois[3] = { dateEtHeure[2], dateEtHeure[3], '\0' };
+    char annee[5] = { dateEtHeure[4], dateEtHeure[5], dateEtHeure[6], dateEtHeure[7], '\0' };
+    char heure[3] = { dateEtHeure[8], dateEtHeure[9], '\0' };
+    char minutes[3] = { dateEtHeure[10], dateEtHeure[11], '\0' };
+    cout << "Jour: " << jour << endl;
+    cout << "Mois: " << mois << endl;
+    cout << "Année: " << annee << endl;
+    cout << "Heure: " << heure << endl;
+    cout << "Minutes: " << minutes <<endl;
+
+    return 0;
+}
