@@ -1,0 +1,53 @@
+#include <iostream>
+ #include <vector>
+using namespace std;
+ class Pile {
+ private:
+   vector<int> elements;
+
+ public:
+
+     Pile() {}
+
+     void push(int valeur) {
+         elements.push_back(valeur);
+     }
+
+
+     int pop() {
+         if (isEmpty()) {
+            cerr << "Erreur: La pile est vide!" << endl;
+             return -1;  // Retourne une valeur d'erreur
+         }
+         int valeur = elements.back();
+         elements.pop_back();
+         return valeur;
+     }
+
+    
+     bool isEmpty() const {
+         return elements.empty();
+     }
+ };
+
+ int main() {
+     Pile p1, p2;
+
+     p1.push(5);
+     p1.push(10);
+     p1.push(15);
+
+     p2.push(20);
+     p2.push(25);
+     p2.push(30);
+    cout << "Éléments de pile p1:" << endl;
+     while (!p1.isEmpty()) {
+         cout << p1.pop() <<endl;
+     }
+   cout << "Éléments de pile p2:" << endl;
+     while (!p2.isEmpty()) {
+       cout << p2.pop() << endl;
+     }
+
+     return 0;
+ }
