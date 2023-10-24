@@ -1,0 +1,52 @@
+#include <iostream>
+ using namespace std;
+
+ class Fichier {
+ private:
+     char* P;
+     int longueur;
+
+ public:
+     Fichier(int taille);
+     Fichier();
+     void Creation();
+     void Remplit();
+     void Affiche();
+ };
+
+ Fichier::Fichier(int taille) {
+     P = new char[taille];
+     longueur = taille;
+ }
+
+ Fichier::Fichier() {
+     delete[] P;
+ }
+
+ void Fichier::Creation() {
+ }
+
+ void Fichier::Remplit() {
+     for (int i = 0; i < longueur; i++) {
+         P[i] = 'k' + (i % 26);
+     }
+ }
+
+ void Fichier::Affiche() {
+     for (int i = 0; i < longueur; i++) {
+         cout << P[i];
+     }
+     cout << endl;
+ }
+
+ int main() {
+     Fichier* fichier = new Fichier(10);
+
+     fichier->Creation();
+     fichier->Remplit();
+     fichier->Affiche();
+
+     delete fichier;
+
+     return 0;
+ }
