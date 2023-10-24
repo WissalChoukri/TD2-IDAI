@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+void incrementer(int *valeur) {
+    (*valeur)++;
+}
+
+
+void permuter(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+
+void permuterParReference(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+int main() {
+    int x = 5;
+    int y = 10;
+
+  cout << "Avant d'appeler incrementer(): x = " << x <<endl;
+    incrementer(&x); 
+    cout << "Après avoir appelé incrementer(): x = " << x << endl;
+
+    cout << "Avant d'appeler permuter(): x = " << x << ", y = " << y << endl;
+    permuter(&x, &y);
+    cout << "Après avoir appelé permuter(): x = " << x << ", y = " << y << endl;
+
+    int a = 7;
+    int b = 14;
+
+    cout << "Avant d'appeler permuterParReference(): a = " << a << ", b = " << b << endl;
+    permuterParReference(a, b);
+    cout << "Après avoir appelé permuterParReference(): a = " << a << ", b = " << b << endl;
+
+    return 0;
+}
