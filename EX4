@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int taille;
+   cout << "Entrez la taille du tableau : ";
+   cin >> taille;
+    int* tableau = new int[taille];
+   cout << "Entrez " << taille << " nombres entiers : ";
+    for (int i = 0; i < taille; i++) {
+      cin >> tableau[i];
+    }
+    int* carres = new int[taille];
+    for (int i = 0; i < taille; i++) {
+        carres[i] = tableau[i] * tableau[i];
+    }
+   cout << "Les carrés des nombres sont : ";
+    for (int i = 0; i < taille; i++) {
+        cout << carres[i] << " ";
+    }
+   cout << endl;
+    delete[] tableau;
+    delete[] carres;
+
+    return 0;
+}
