@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std ;
+ class Stack{
+ private:
+    int size;
+    int *P;
+    int Nombreelement ;
+ public:
+     Stack(int size = 20) : size(size) {
+        P = new int[size];
+        }
+     ~Stack() {
+        delete[] P;
+        }
+       void operator<<(int n){
+        if ( Nombreelement < size) {
+           P[ Nombreelement ++] = n;
+        }
+        }
+        return -1;
+    }
+      int operator>>(int n) {
+        if ( Nombreelement > 0) {
+            n = P[-- Nombreelement];
+        }
+    bool operator++() const {
+    return Nombreelement >= size;
+}
+    bool operator--() {
+    return Nombreelement==0;
+    }
+};
+int main() {
+
+    Stack*P = new Stack(15);
+
+    for (int i = 1; i <= 15; i++) {
+        *P << i;
+    }
+
+    int d;
+    *P >> d;
+    cout << "Top of the stack: " << topValue << endl;
+    delete P;
+return 0;
+}
